@@ -10,6 +10,14 @@ app.get('/', (req, res) => {
     res.send('Test')
 })  // localhost:3000 - Test 출력
 
+// localhost:3000/test/LHJ?lang=ko
+app.get('/test/:name', (req, res) => {
+    console.log('path', req.path)       // '/test/LHJ'
+    console.log('params', req.params)   // {name: 'LHJ'}
+    console.log('query', req.query)     // {lang: 'ko'}
+    res.send('콘솔 보세요')
+})
+
 app.listen(port, () => {
     console.log(`listening on port ${port}`)
     console.log(express.static(path.join(__dirname, 'html')))
